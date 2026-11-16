@@ -22,7 +22,7 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     throw 'The GitHub CLI (gh) is required. Install it from https://cli.github.com and run "gh auth login".'
 }
 
-gh auth status *> $null
+$token = gh auth token --hostname github.com 2>$null
 if ($LASTEXITCODE -ne 0) {
     throw 'You are not signed in to the GitHub CLI. Run "gh auth login" and try again.'
 }
