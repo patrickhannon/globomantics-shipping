@@ -6,7 +6,7 @@ public static class HavsgrenLinesServiceCodes
 {
     public static IReadOnlyList<ServiceOption> All { get; } =
     [
-        new("HVL-SEC", "Havsgren Super Economy", ServiceLevel.Economy, TransitDays: 10),
+        new("HVL-SEC", "Havsgren Super Economy", ServiceLevel.SuperEconomy, TransitDays: 10),
         new("HVL-ECO", "Havsgren Economy", ServiceLevel.Economy, TransitDays: 5),
         new("HVL-STD", "Havsgren Standard", ServiceLevel.Standard, TransitDays: 2),
         new("HVL-NXT", "Havsgren Next Day", ServiceLevel.Express, TransitDays: 1),

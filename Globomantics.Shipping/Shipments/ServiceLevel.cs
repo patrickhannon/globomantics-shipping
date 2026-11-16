@@ -6,6 +6,7 @@ namespace Globomantics.Shipping.Shipments;
 /// </summary>
 public enum ServiceLevel
 {
+    SuperEconomy,
     Economy,
     Standard,
     Express,
@@ -16,6 +17,7 @@ public static class ServiceLevelExtensions
 {
     public static string DisplayName(this ServiceLevel level) => level switch
     {
+        ServiceLevel.SuperEconomy => "Super economy",
         ServiceLevel.SameDay => "Same day",
         _ => level.ToString(),
     };

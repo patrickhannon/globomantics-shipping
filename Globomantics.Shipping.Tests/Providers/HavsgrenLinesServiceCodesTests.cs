@@ -9,7 +9,7 @@ public class HavsgrenLinesServiceCodesTests
     private readonly HavsgrenLinesAdapter _adapter = new();
 
     [Theory]
-    [InlineData("HVL-SEC", "Havsgren Super Economy", ServiceLevel.Economy, 10)]
+    [InlineData("HVL-SEC", "Havsgren Super Economy", ServiceLevel.SuperEconomy, 10)]
     [InlineData("HVL-ECO", "Havsgren Economy", ServiceLevel.Economy, 5)]
     [InlineData("HVL-STD", "Havsgren Standard", ServiceLevel.Standard, 2)]
     [InlineData("HVL-NXT", "Havsgren Next Day", ServiceLevel.Express, 1)]
@@ -25,5 +25,11 @@ public class HavsgrenLinesServiceCodesTests
     public void OffersExactlyFiveServices()
     {
         Assert.Equal(5, _adapter.Services.Count);
+    }
+
+    [Fact]
+    public void SuperEconomyHasDisplayName()
+    {
+        Assert.Equal("Super economy", ServiceLevel.SuperEconomy.DisplayName());
     }
 }
