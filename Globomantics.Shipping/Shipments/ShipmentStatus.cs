@@ -15,6 +15,7 @@ public enum ShipmentStatus
     DeliveryFailed,
     OnHold,
     Returned,
+    ReturnedAltAddressSender,
 }
 
 public static class ShipmentStatusExtensions
@@ -30,6 +31,7 @@ public static class ShipmentStatusExtensions
         ShipmentStatus.DeliveryFailed => "Delivery failed",
         ShipmentStatus.OnHold => "On hold",
         ShipmentStatus.Returned => "Returned to sender",
+        ShipmentStatus.ReturnedAltAddressSender => "Returned to alternate address sender",
         _ => "Unknown status",
     };
 
@@ -37,6 +39,7 @@ public static class ShipmentStatusExtensions
         status is ShipmentStatus.DeliveryFailed
             or ShipmentStatus.OnHold
             or ShipmentStatus.Returned
+            or ShipmentStatus.ReturnedAltAddressSender
             or ShipmentStatus.Unknown;
 
     /// <summary>

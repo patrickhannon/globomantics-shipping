@@ -18,6 +18,7 @@ public static class HavsgrenLinesTrackingStatuses
             ["ADDRESS_QUERY"] = ShipmentStatus.OnHold,
             ["CUSTOMS_HOLD"] = ShipmentStatus.OnHold,
             ["RETURNED_TO_SENDER"] = ShipmentStatus.Returned,
+            ["RETURNED_TO_ALT_ADDR_SENDER"] = ShipmentStatus.ReturnedAltAddressSender,
             ["IN_LOCKER"] = ShipmentStatus.Delivered,
         };
 }
