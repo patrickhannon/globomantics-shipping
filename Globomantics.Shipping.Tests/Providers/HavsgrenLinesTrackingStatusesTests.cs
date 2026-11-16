@@ -20,6 +20,7 @@ public class HavsgrenLinesTrackingStatusesTests
     [InlineData("ADDRESS_QUERY", ShipmentStatus.OnHold)]
     [InlineData("CUSTOMS_HOLD", ShipmentStatus.OnHold)]
     [InlineData("RETURNED_TO_SENDER", ShipmentStatus.Returned)]
+    [InlineData("RETURNED_TO_ALT_ADDR_SENDER", ShipmentStatus.ReturnedAltAddressSender)]
     [InlineData("IN_LOCKER", ShipmentStatus.Delivered)]
     [InlineData("in_locker", ShipmentStatus.Delivered)]
     public void MapsTrackingCode(string code, ShipmentStatus expected)
@@ -30,6 +31,13 @@ public class HavsgrenLinesTrackingStatusesTests
     [Fact]
     public void MapsEveryCodeInTheSpec()
     {
-        Assert.Equal(12, _adapter.TrackingStatuses.Count);
+        Assert.Equal(13, _adapter.TrackingStatuses.Count);
+    }
+
+    [Fact]
+    public void AlternateAddressReturnNeedsAttention()
+    {
+        Assert.Equal("Returned to alternate address sender", ShipmentStatus.ReturnedAltAddressSender.DisplayName());
+        Assert.True(ShipmentStatus.ReturnedAltAddressSender.NeedsAttention());
     }
 }
